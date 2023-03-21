@@ -10,12 +10,12 @@ use winapi::um::winnt::IMAGE_EXPORT_DIRECTORY;
 use winapi::um::libloaderapi::GetProcAddress;
 use winapi::um::processthreadsapi::GetCurrentProcess;
 
-pub struct ZeroImport {
+pub struct d_entry {
     ntoskrnl_base: usize,
     ntoskrnl_export_dir: usize,
 }
 
-impl ZeroImport {
+impl d_entry {
     pub fn init() -> Option<Self> {
         let ntoskrnl_entry = get_system_module_entry("ntoskrnl.exe")?;
         let ntoskrnl_base = ntoskrnl_entry.dll_base as usize;
