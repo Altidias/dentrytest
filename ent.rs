@@ -57,3 +57,16 @@ pub fn get_cached_module_export<const HASH: HashType>() -> *mut ::std::os::raw::
 
     CACHED
 }
+
+pub struct MODULEENTRY32 {
+    pub dwSize: DWORD,
+    pub th32ModuleID: DWORD,
+    pub th32ProcessID: DWORD,
+    pub GlblcntUsage: DWORD,
+    pub ProccntUsage: DWORD,
+    pub modBaseAddr: *mut BYTE,
+    pub modBaseSize: DWORD,
+    pub hModule: HMODULE,
+    pub szModule: [CHAR; MAX_MODULE_NAME32 + 1],
+    pub szExePath: [CHAR; MAX_PATH],
+}
